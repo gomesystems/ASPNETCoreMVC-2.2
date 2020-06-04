@@ -15,7 +15,7 @@ namespace LojaVirtual.Libraries.Email
 
             SmtpClient smtp = new SmtpClient("smtp.servicosti.com.br", 587);
             smtp.UseDefaultCredentials = false;       // desabilita as credenciais de segurança deste email
-            smtp.Credentials = new NetworkCredential("xxxxxx", "xxxxxxx");
+            smtp.Credentials = new NetworkCredential("xxxxxxxxx", "xxxxxxxxxx");
             smtp.EnableSsl = false;
 
 
@@ -33,8 +33,8 @@ namespace LojaVirtual.Libraries.Email
             // MailMassage -> Construir a menssagem pra enviar
 
             MailMessage mensagem = new MailMessage();
-            mensagem.From = new MailAddress("contato@servicosti.com.br");
-            mensagem.To.Add("contato@servicosti.com.br");
+            mensagem.From = new MailAddress("xxxxxxxxxx");
+            mensagem.To.Add("xxxxxxxxxxx");
             mensagem.Subject = "Contato Loja Virtual - E-mail: " + contato.Email;
             mensagem.Body = corpoMsg;
             mensagem.IsBodyHtml = true;

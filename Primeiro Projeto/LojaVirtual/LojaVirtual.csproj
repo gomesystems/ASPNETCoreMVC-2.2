@@ -14,6 +14,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="7.6.0" />
   </ItemGroup>
 
 
@@ -31,6 +33,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Mensagen.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Colaborador\Models\" />
+    <Folder Include="wwwroot\uploads\temp\" />
   </ItemGroup>
 
 </Project>
