@@ -15,7 +15,9 @@ namespace LojaVirtual.Reposytories.Contracts
         void Atualizar(Categoria categoria);
         void Excluir(int Id);
         Categoria ObterCategoria(int Id);
+        Categoria ObterCategoria(string Slug);
 
+        IEnumerable<Categoria> ObterCategoriasRecursivas( Categoria categoriaPai);
         IEnumerable<Categoria> ObterTodosCategorias();
         IPagedList<Categoria> ObterTodosCategorias(int? pagina);
     }

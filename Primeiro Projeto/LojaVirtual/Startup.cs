@@ -21,6 +21,9 @@ using LojaVirtual.Reposytories.Contracts;
 using LojaVirtual.Reposytories;
 using LojaVirtual.Libraries.Middleware;
 using LojaVirtual.Repositories;
+using LojaVirtual.Libraries.CarrinhoCompra;
+using AutoMapper;
+using LojaVirtual.Libraries.AutoMapper;
 
 namespace LojaVirtual
 {
@@ -33,9 +36,14 @@ namespace LojaVirtual
 
         public IConfiguration Configuration { get; }
 
-
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
+             * AutoMapper
+             */
+
+            services.AddAutoMapper(config => config.AddProfile<MappingProfile>());
+
             /*
              * Padrão Repository
              */
@@ -50,7 +58,8 @@ namespace LojaVirtual
             /*
              * SMTP
              */
-            services.AddScoped<SmtpClient>(options => {
+            services.AddScoped<SmtpClient>(options =>
+            {
                 SmtpClient smtp = new SmtpClient()
                 {
                     Host = Configuration.GetValue<string>("Email:ServerSMTP"),
@@ -63,6 +72,8 @@ namespace LojaVirtual
                 return smtp;
             });
             services.AddScoped<GerenciarEmail>();
+            services.AddScoped<LojaVirtual.Libraries.Cookie.Cookie>();
+            services.AddScoped<CarrinhoCompra>();
 
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -76,16 +87,20 @@ namespace LojaVirtual
              * Session - Configuração
              */
             services.AddMemoryCache(); //Guardar os dados na memória
-            services.AddSession(options => {
-
+            services.AddSession(options =>
+            {
+                options.Cookie.IsEssential = true;             //criar  o cookie junto a sessao
             });
 
             services.AddScoped<Sessao>();
+            services.AddScoped<LojaVirtual.Libraries.Cookie.Cookie>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
 
             //  services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);                        Tradução defaul para menssagens 
-            services.AddMvc(options => { options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido!"); 
+            services.AddMvc(options =>
+            {
+                options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido!");
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddSessionStateTempDataProvider();
 
             services.AddSession(options => { options.Cookie.IsEssential = true; });

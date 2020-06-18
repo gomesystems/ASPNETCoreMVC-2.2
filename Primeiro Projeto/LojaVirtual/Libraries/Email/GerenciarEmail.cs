@@ -37,9 +37,9 @@ namespace LojaVirtual.Libraries.Email
             // MailMassage -> Construir a menssagem pra enviar
 
             MailMessage mensagem = new MailMessage();
-            //mensagem.From = new MailAddress("contato@cccccccccc.com.br");
+            //mensagem.From = new MailAddress("contato@servicosti.com.br");
             mensagem.From = new MailAddress(_configuration.GetValue<string>("Email:Username"));
-            mensagem.To.Add("contato@xxxxxxxxxxx.com.br");
+            mensagem.To.Add("contato@servicosti.com.br");
             mensagem.Subject = "Contato Loja Virtual - E-mail: " + contato.Email;
             mensagem.Body = corpoMsg;
             mensagem.IsBodyHtml = true;

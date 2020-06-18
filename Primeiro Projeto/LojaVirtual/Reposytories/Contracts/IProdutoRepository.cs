@@ -1,4 +1,5 @@
 ﻿using LojaVirtual.Models;
+using LojaVirtual.Models.ProdutoAgregador;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,6 @@ namespace LojaVirtual.Reposytories.Contracts
 
         Produto ObterProduto(int Id);        
         IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa);
-        IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao);
+        IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao, IEnumerable<Categoria> categorias);
     }
 }

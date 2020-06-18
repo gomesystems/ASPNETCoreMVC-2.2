@@ -1,5 +1,4 @@
 ﻿using LojaVirtual.Database;
-using LojaVirtual.Migrations;
 using LojaVirtual.Models;
 using LojaVirtual.Reposytories.Contracts;
 using Microsoft.EntityFrameworkCore;
@@ -10,29 +9,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using X.PagedList;
 
-namespace LojaVirtual.Reposytories
+namespace LojaVirtual.Repositories
 {
     public class CategoriaRepository : ICategoriaRepository
     {
-
-        private IConfiguration _config;
+        IConfiguration _conf;
         LojaVirtualContext _banco;
-        public  CategoriaRepository(LojaVirtualContext banco, IConfiguration configuration)
+        public CategoriaRepository(LojaVirtualContext banco, IConfiguration configuration)
         {
             _banco = banco;
-            _config = configuration;
-        }
-
-
-    public void Cadastrar(Categoria categoria)
-        {
-            _banco.Add(categoria);
-            _banco.SaveChanges();
+            _conf = configuration;
         }
 
         public void Atualizar(Categoria categoria)
         {
             _banco.Update(categoria);
+            _banco.SaveChanges();
+        }
+
+        public void Cadastrar(Categoria categoria)
+        {
+            _banco.Add(categoria);
             _banco.SaveChanges();
         }
 
@@ -48,18 +45,51 @@ namespace LojaVirtual.Reposytories
             return _banco.Categorias.Find(Id);
         }
 
+        public Categoria ObterCategoria(string Slug)
+        {
+            return _banco.Categorias.Where(a => a.Slug == Slug).FirstOrDefault();
+        }
+
+        private List<Categoria> Categorias;
+        private List<Categoria> ListaCategoriaRecursiva = new List<Categoria>();
+        public IEnumerable<Categoria> ObterCategoriasRecursivas(Categoria categoriaPai)
+        {
+            if (Categorias == null)
+            {
+                Categorias = ObterTodosCategorias().ToList();
+            }
+
+            if (!ListaCategoriaRecursiva.Exists(a => a.Id == categoriaPai.Id))
+            {
+                ListaCategoriaRecursiva.Add(categoriaPai);
+            }
+
+            var ListaCategoriaFilho = Categorias.Where(a => a.CategoriaPaiId == categoriaPai.Id);
+            if (ListaCategoriaFilho.Count() > 0)
+            {
+                ListaCategoriaRecursiva.AddRange(ListaCategoriaFilho.ToList());
+                foreach (var categoria in ListaCategoriaFilho)
+                {
+                    ObterCategoriasRecursivas(categoria);
+                }
+            }
+
+            return ListaCategoriaRecursiva;
+        }
+
+
         public IPagedList<Categoria> ObterTodosCategorias(int? pagina)
         {
-            int RegistroPorPagina = _config.GetValue<int>("RegistroPorPagina");
+            int RegistroPorPagina = _conf.GetValue<int>("RegistroPorPagina");
 
-            int NumeroPagina = pagina ?? 1;            
-            return _banco.Categorias.Include(a => a.CategoriaPai).ToPagedList<Categoria>(NumeroPagina, RegistroPorPagina); 
+            int NumeroPagina = pagina ?? 1;
+            return _banco.Categorias.Include(a => a.CategoriaPai).ToPagedList<Categoria>(NumeroPagina, RegistroPorPagina);
         }
 
         public IEnumerable<Categoria> ObterTodosCategorias()
         {
             return _banco.Categorias;
         }
+
     }
 }
-     

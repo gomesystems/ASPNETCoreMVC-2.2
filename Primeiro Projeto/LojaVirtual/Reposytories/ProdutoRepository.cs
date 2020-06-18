@@ -1,5 +1,6 @@
 ﻿using LojaVirtual.Database;
 using LojaVirtual.Models;
+using LojaVirtual.Models.ProdutoAgregador;
 using LojaVirtual.Reposytories.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,19 +10,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using X.PagedList;
 
-namespace LojaVirtual.Reposytories
+namespace LojaVirtual.Repositories
 {
-    
     public class ProdutoRepository : IProdutoRepository
     {
-
-        //construtor
-        private IConfiguration _config;
+        IConfiguration _conf;
         LojaVirtualContext _banco;
+
         public ProdutoRepository(LojaVirtualContext banco, IConfiguration configuration)
         {
             _banco = banco;
-            _config = configuration;
+            _conf = configuration;
         }
 
         public void Atualizar(Produto produto)
@@ -44,27 +43,26 @@ namespace LojaVirtual.Reposytories
         }
 
         public Produto ObterProduto(int Id)
-        {   //pega as imagens relacionadas junto ao produto  - Include(a=>a.Imagens).Where(a=> a.Id == Id)
-            return _banco.Produtos.Include(a=>a.Imagens).OrderBy(a =>a.Nome).Where(a=> a.Id == Id).FirstOrDefault();
+        {
+            return _banco.Produtos.Include(a => a.Imagens).OrderBy(a => a.Nome).Where(a => a.Id == Id).FirstOrDefault();
         }
 
         public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa)
         {
-            return ObterTodosProdutos(pagina,pesquisa, "A");
+            return ObterTodosProdutos(pagina, pesquisa, "A", null);
         }
 
-        public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao)
+        public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao, IEnumerable<Categoria> categorias)
         {
+            int RegistroPorPagina = _conf.GetValue<int>("RegistroPorPagina");
 
-            int RegistroPorPagina = _config.GetValue<int>("RegistroPorPagina");
             int NumeroPagina = pagina ?? 1;
-            var bancoProduto = _banco.Produtos.AsQueryable();
 
+            var bancoProduto = _banco.Produtos.AsQueryable();
             if (!string.IsNullOrEmpty(pesquisa))
             {
                 bancoProduto = bancoProduto.Where(a => a.Nome.Contains(pesquisa.Trim()));
             }
-
             if (ordenacao == "A")
             {
                 bancoProduto = bancoProduto.OrderBy(a => a.Nome);
@@ -76,6 +74,14 @@ namespace LojaVirtual.Reposytories
             if (ordenacao == "MA")
             {
                 bancoProduto = bancoProduto.OrderByDescending(a => a.Valor);
+            }
+            if (categorias != null && categorias.Count() > 0)
+            {
+                /*
+                 * IEnumerable Categorias
+                 * SQL: Where CategoriaId IN (1,5,....)
+                 */
+                bancoProduto = bancoProduto.Where(a => categorias.Select(b => b.Id).Contains(a.CategoriaId));
             }
 
             return bancoProduto.Include(a => a.Imagens).ToPagedList<Produto>(NumeroPagina, RegistroPorPagina);

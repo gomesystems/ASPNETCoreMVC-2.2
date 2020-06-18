@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using LojaVirtual.Libraries.Email;
 using LojaVirtual.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -89,8 +91,6 @@ namespace LojaVirtual.Controllers
                     ViewData["MSG_E"] = sb.ToString();
                     ViewData["CONTATO"] = contato;
                 }
-
-
             }
             catch (Exception e)
             {
@@ -98,11 +98,8 @@ namespace LojaVirtual.Controllers
 
                 //TODO - Implementar Log
             }
-
-
             return View("Contato");
         }
-
 
         [HttpGet]
         public IActionResult Login()
@@ -152,11 +149,6 @@ namespace LojaVirtual.Controllers
                 //TODO - Implementar redirecionamentos diferentes (Painel, Carrinho de Compras etc).
                 return RedirectToAction(nameof(CadastroCliente));
             }
-            return View();
-        }
-
-        public IActionResult CarrinhoCompras()
-        {
             return View();
         }
     }
