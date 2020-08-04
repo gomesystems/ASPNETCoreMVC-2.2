@@ -14,27 +14,32 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 2 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
-using LojaVirtual.Models;
-
-#line default
-#line hidden
-#line 3 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList.Mvc.Core;
 
 #line default
 #line hidden
-#line 4 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+#line 3 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList;
 
 #line default
 #line hidden
 #line 5 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models;
+
+#line default
+#line hidden
+#line 6 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models.ProdutoAgregador;
+
+#line default
+#line hidden
+#line 7 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using LojaVirtual.Models.Constants;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3b26787d2b7e9649a52e89dba54eb208d3e3faa6", @"/Areas/Colaborador/Views/Home/Login.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dea797114cbc17efc51fd94700ecd7a2104983d", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"18d915f1a097a77fd5c8651a07be24ec99f200aa", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
     public class Areas_Colaborador_Views_Home_Login : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LojaVirtual.Models.Colaborador>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-control"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -116,12 +121,12 @@ using LojaVirtual.Models.Constants;
             WriteLiteral("                        <h4 class=\"card-title mb-4 mt-1\">Entrar</h4>\r\n                        ");
             EndContext();
             BeginContext(753, 845, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b26787d2b7e9649a52e89dba54eb208d3e3faa67947", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b26787d2b7e9649a52e89dba54eb208d3e3faa68163", async() => {
                 BeginContext(773, 143, true);
                 WriteLiteral("\r\n                            <div class=\"form-group\">\r\n                                <label>E-mail</label>\r\n                                ");
                 EndContext();
                 BeginContext(916, 77, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3b26787d2b7e9649a52e89dba54eb208d3e3faa68477", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3b26787d2b7e9649a52e89dba54eb208d3e3faa68693", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -153,7 +158,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                                 ");
                 EndContext();
                 BeginContext(1250, 81, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3b26787d2b7e9649a52e89dba54eb208d3e3faa610779", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3b26787d2b7e9649a52e89dba54eb208d3e3faa610995", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

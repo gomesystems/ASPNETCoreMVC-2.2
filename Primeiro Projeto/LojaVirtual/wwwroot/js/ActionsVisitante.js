@@ -3,14 +3,94 @@
     MudarOrdenacao();
     MudarImagePrincipalProduto();
     MudarQuantidadeProdutoCarrinho();
-});
 
+    MascaraCEP();
+    AcaoCalcularFreteBTN();
+    AJAXCalcularFrete(false);
+});
+function MascaraCEP() {
+    $(".cep").mask("00.000-000");
+}
+function AcaoCalcularFreteBTN() {
+    $(".btn-calcular-frete").click(function (e) {
+        AJAXCalcularFrete(true);
+        e.preventDefault();
+    });
+}
+
+function AJAXCalcularFrete(callByButton) {
+    $(".btn-continuar").addClass("disabled");
+    if (callByButton == false) {
+        if ($.cookie('Carrinho.CEP') != undefined) {
+            $(".cep").val($.cookie('Carrinho.CEP'));
+        }
+    }
+
+
+    var cep = $(".cep").val().replace(".", "").replace("-", "");
+    $.removeCookie("Carrinho.TipoFrete");
+
+    if (cep.length == 8) {
+
+        $.cookie('Carrinho.CEP', $(".cep").val());
+        $(".container-frete").html("<br /><br /><img src='\\img\\loading.gif' />");
+        $(".frete").text("R$ 0,00");
+        $(".total").text("R$ 0,00");
+
+
+        $.ajax({
+            type: "GET",
+            url: "/CarrinhoCompra/CalcularFrete?cepDestino=" + cep,
+            error: function (data) {
+                MostrarMensagemDeErro("Opps! Tivemos um erro ao obter o Frete..." + data.Message);
+                console.info(data);
+            },
+            success: function (data) {
+                html = "";
+
+                for (var i = 0; i < data.length; i++) {
+                    var tipoFrete = data[i].tipoFrete;
+                    var valor = data[i].valor;
+                    var prazo = data[i].prazo;
+
+                    html += "<dl class=\"dlist-align\"><dt><input type=\"radio\" name=\"frete\" value=\"" + tipoFrete + "\" /><input type=\"hidden\" name=\"valor\" value=\"" + valor + "\" /></dt><dd>" + tipoFrete + " - " + numberToReal(valor) + " (" + prazo + " dias últeis)</dd></dl>";
+                }
+
+                $(".container-frete").html(html);
+                $(".container-frete").find("input[type=radio]").change(function () {
+
+                    $.cookie("Carrinho.TipoFrete", $(this).val());
+                    $(".btn-continuar").removeClass("disabled");
+
+                    var valorFrete = parseFloat($(this).parent().find("input[type=hidden]").val());
+
+
+
+                    $(".frete").text(numberToReal(valorFrete));
+
+                    var subtotal = parseFloat($(".subtotal").text().replace("R$", "").replace(".", "").replace(",", "."));
+                    console.info("Subtotal: " + subtotal);
+
+                    var total = valorFrete + subtotal;
+
+                    $(".total").text(numberToReal(total));
+                });
+                //console.info(data);
+            }
+        });
+    } else {
+        if (callByButton == true) {
+            $(".container-frete").html("");
+            MostrarMensagemDeErro("Digite o CEP para calcular o frete!");
+        }
+    }
+}
 function numberToReal(numero) {
+    //console.info(numero);
     var numero = numero.toFixed(2).split('.');
     numero[0] = "R$ " + numero[0].split(/(?=(?:...)*$)/).join('.');
     return numero.join(',');
 }
-
 function MudarQuantidadeProdutoCarrinho() {
     $("#order .btn-primary").click(function () {
         if ($(this).hasClass("diminuir")) {
@@ -87,7 +167,7 @@ function AJAXComunicarAlteracaoQuantidadeProduto(produto) {
             AtualizarQuantidadeEValor(produto);
         },
         success: function () {
-
+            AJAXCalcularFrete();
         }
     });
 }
@@ -104,8 +184,23 @@ function AtualizarQuantidadeEValor(produto) {
 
     var resultado = produto.valorUnitario * produto.quantidadeProdutoCarrinhoNova;
     produto.campoValor.text(numberToReal(resultado));
-}
 
+    AtualizarSubtotal();
+}
+function AtualizarSubtotal() {
+    var Subtotal = 0;
+
+    var TagsComPrice = $(".price");
+
+    TagsComPrice.each(function () {
+        var ValorReais = parseFloat($(this).text().replace("R$", "").replace(".", "").replace(" ", "").replace(",", "."));
+
+        Subtotal += ValorReais;
+    })
+    $(".subtotal").text(numberToReal(Subtotal));
+
+
+}
 function MudarImagePrincipalProduto() {
     $(".img-small-wrap img").click(function () {
         var Caminho = $(this).attr("src");

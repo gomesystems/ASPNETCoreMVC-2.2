@@ -2,6 +2,7 @@
 using LojaVirtual.Libraries.Filtro;
 using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Models;
+using LojaVirtual.Models.ProdutoAgregador;
 using LojaVirtual.Reposytories.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,7 +13,7 @@ using System.Linq;
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
-    [ColaboradorAutorizacao]
+   [ColaboradorAutorizacao]
     public class ProdutoController : Controller
     {
         private IProdutoRepository _produtoRepository;

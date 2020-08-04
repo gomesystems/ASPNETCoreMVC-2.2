@@ -14,27 +14,32 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 2 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
-using LojaVirtual.Models;
-
-#line default
-#line hidden
-#line 3 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList.Mvc.Core;
 
 #line default
 #line hidden
-#line 4 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+#line 3 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList;
 
 #line default
 #line hidden
 #line 5 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models;
+
+#line default
+#line hidden
+#line 6 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models.ProdutoAgregador;
+
+#line default
+#line hidden
+#line 7 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using LojaVirtual.Models.Constants;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"af83674fa46d1af8d1762deb1ba0e52817a5ccba", @"/Areas/Colaborador/Views/Home/Painel.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dea797114cbc17efc51fd94700ecd7a2104983d", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"18d915f1a097a77fd5c8651a07be24ec99f200aa", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
     public class Areas_Colaborador_Views_Home_Painel : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

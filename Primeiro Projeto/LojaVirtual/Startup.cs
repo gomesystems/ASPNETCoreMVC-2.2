@@ -24,6 +24,9 @@ using LojaVirtual.Repositories;
 using LojaVirtual.Libraries.CarrinhoCompra;
 using AutoMapper;
 using LojaVirtual.Libraries.AutoMapper;
+using WSCorreios;
+using System.ServiceModel;
+using LojaVirtual.Libraries.Gerenciador.Frete;
 
 namespace LojaVirtual
 {
@@ -71,10 +74,21 @@ namespace LojaVirtual
 
                 return smtp;
             });
+
+            //correios
+            services.AddScoped<CalcPrecoPrazoWSSoap>(options => {
+                var servico = new CalcPrecoPrazoWSSoapClient(CalcPrecoPrazoWSSoapClient.EndpointConfiguration.CalcPrecoPrazoWSSoap);
+                ((IContextChannel)servico.InnerChannel).OperationTimeout = new TimeSpan(0, 30, 0);
+
+                return servico;
+            });
+
             services.AddScoped<GerenciarEmail>();
             services.AddScoped<LojaVirtual.Libraries.Cookie.Cookie>();
-            services.AddScoped<CarrinhoCompra>();
-
+            services.AddScoped<CookieCarrinhoCompra>();
+            services.AddScoped<CookieValorPrazoFrete>();
+            services.AddScoped<WSCorreiosCalcularFrete>();
+            services.AddScoped<CalcularPacote>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -83,6 +97,7 @@ namespace LojaVirtual
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+           
             /*
              * Session - Configuração
              */

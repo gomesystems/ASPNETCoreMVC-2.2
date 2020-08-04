@@ -14,27 +14,32 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 2 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
-using LojaVirtual.Models;
-
-#line default
-#line hidden
-#line 3 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList.Mvc.Core;
 
 #line default
 #line hidden
-#line 4 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+#line 3 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using X.PagedList;
 
 #line default
 #line hidden
 #line 5 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models;
+
+#line default
+#line hidden
+#line 6 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
+using LojaVirtual.Models.ProdutoAgregador;
+
+#line default
+#line hidden
+#line 7 "C:\Meus Projetos - DotNet - Core\ASPNETCoreMVCLojaVirtual 2.2\LojaVirtual\LojaVirtual\Areas\Colaborador\Views\_ViewImports.cshtml"
 using LojaVirtual.Models.Constants;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cb745f1a121fc54b28b5005d3ff9a740f9982b2c", @"/Areas/Colaborador/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dea797114cbc17efc51fd94700ecd7a2104983d", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"18d915f1a097a77fd5c8651a07be24ec99f200aa", @"/Areas/Colaborador/Views/_ViewImports.cshtml")]
     public class Areas_Colaborador_Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/StyleSheet.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -87,7 +92,7 @@ using LojaVirtual.Models.Constants;
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"pt-br\">\r\n");
             EndContext();
             BeginContext(104, 1204, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c11674", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c11890", async() => {
                 BeginContext(110, 318, true);
                 WriteLiteral(@"
     <meta charset=""utf-8"">
@@ -108,7 +113,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("</title>\r\n\r\n    ");
                 EndContext();
                 BeginContext(458, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c12805", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c13021", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -128,7 +133,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n\r\n    <!-- Bootstrap core CSS -->\r\n    ");
                 EndContext();
                 BeginContext(568, 91, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c14265", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c14481", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -147,7 +152,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(665, 88, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c15598", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c15814", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -182,7 +187,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("@media (min-width: 768px) {\r\n            .bd-placeholder-img-lg {\r\n                font-size: 3.5rem;\r\n            }\r\n        }\r\n    </style>\r\n    <!-- Custom styles for this template -->\r\n    ");
                 EndContext();
                 BeginContext(1229, 70, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c17617", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c17833", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -216,7 +221,7 @@ using LojaVirtual.Models.Constants;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(1310, 5689, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c19751", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c19967", async() => {
                 BeginContext(1316, 382, true);
                 WriteLiteral(@"
     <nav class=""navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow"">
@@ -227,7 +232,7 @@ using LojaVirtual.Models.Constants;
                 ");
                 EndContext();
                 BeginContext(1698, 48, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c20534", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c20750", async() => {
                     BeginContext(1738, 4, true);
                     WriteLiteral("Sair");
                     EndContext();
@@ -261,7 +266,7 @@ using LojaVirtual.Models.Constants;
                             ");
                 EndContext();
                 BeginContext(2100, 200, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c22446", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c22662", async() => {
                     BeginContext(2147, 149, true);
                     WriteLiteral("\r\n                                <span data-feather=\"home\"></span>\r\n                                Painel de Controle\r\n                            ");
                     EndContext();
@@ -284,7 +289,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
                 EndContext();
                 BeginContext(2408, 211, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c24262", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c24478", async() => {
                     BeginContext(2474, 141, true);
                     WriteLiteral("\r\n                                <span data-feather=\"file\"></span>\r\n                                Categorias\r\n                            ");
                     EndContext();
@@ -309,7 +314,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
                 EndContext();
                 BeginContext(2727, 216, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c26288", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c26504", async() => {
                     BeginContext(2791, 148, true);
                     WriteLiteral("\r\n                                <span data-feather=\"shopping-cart\"></span>\r\n                                Produtos\r\n                            ");
                     EndContext();
@@ -343,7 +348,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("                            <li class=\"nav-item\">\r\n                                ");
                 EndContext();
                 BeginContext(3228, 227, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c28787", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c29003", async() => {
                     BeginContext(3296, 155, true);
                     WriteLiteral("\r\n                                    <span data-feather=\"users\"></span>\r\n                                    Colaborador\r\n                                ");
                     EndContext();
@@ -376,7 +381,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n                        <li class=\"nav-item\">\r\n                            ");
                 EndContext();
                 BeginContext(3596, 207, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c31149", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c31365", async() => {
                     BeginContext(3660, 139, true);
                     WriteLiteral("\r\n                                <span data-feather=\"users\"></span>\r\n                                Cliente\r\n                            ");
                     EndContext();
@@ -467,7 +472,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n\r\n            </main>\r\n        </div>\r\n    </div>\r\n    ");
                 EndContext();
                 BeginContext(6277, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c36064", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c36280", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -489,7 +494,7 @@ using LojaVirtual.Models.Constants;
     ");
                 EndContext();
                 BeginContext(6662, 87, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c37636", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c37852", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -507,7 +512,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(6755, 58, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c38893", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c39109", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -525,7 +530,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(6819, 56, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c40150", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c40366", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -543,7 +548,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n\r\n    ");
                 EndContext();
                 BeginContext(6883, 62, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c41411", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c41627", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -561,7 +566,7 @@ using LojaVirtual.Models.Constants;
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(6951, 39, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c42668", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb745f1a121fc54b28b5005d3ff9a740f9982b2c42884", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
