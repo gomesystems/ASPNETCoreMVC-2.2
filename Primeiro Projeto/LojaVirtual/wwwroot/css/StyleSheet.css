@@ -133,7 +133,7 @@
     text-align: left;
 }
 
-.btn-continuar {
+.btn-continuar, .btn-continuar-comprando {
     width: 100%;
     min-height: 70%;
     font-size: 36px;

@@ -1,4 +1,5 @@
 ﻿using LojaVirtual.Libraries.Lang;
+using Microsoft.AspNetCore.Mvc.Razor.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,6 +32,29 @@ namespace LojaVirtual.Models
         [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
         [EmailAddress(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E004")]
         public string Email { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
+        [MinLength(10, ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E002")]
+        [MaxLength(10, ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E003")]
+        public string CEP { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
+        public string Estado { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
+        public string Cidade { get; set; }
+
+        [Display(Name = "Endereço")]
+        [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
+        public string Endereco { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
+        public string Complemento { get; set; }
+
+        [Display(Name = "Número")]
+        public string Numero { get; set; }
+
+
 
         [Required(ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E001")]
         [MinLength(6, ErrorMessageResourceType = typeof(Mensagen), ErrorMessageResourceName = "MSG_E002")]

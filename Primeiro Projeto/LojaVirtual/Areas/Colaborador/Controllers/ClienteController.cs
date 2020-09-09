@@ -26,7 +26,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
 
         public IActionResult Index(int? pagina, string pesquisa)
         {
-            IPagedList<Cliente> clientes = _clienteRepository.ObterTodosClientes(pagina, pesquisa);
+            IPagedList<Models.Cliente> clientes = _clienteRepository.ObterTodosClientes(pagina, pesquisa);
             return View(clientes);
         }
 
@@ -34,7 +34,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [ValidateHttpReferer]
         public IActionResult AtivarDesativar(int id)
         {
-            Cliente cliente = _clienteRepository.ObterCliente(id);
+            Models.Cliente cliente = _clienteRepository.ObterCliente(id);
 
             cliente.Situacao = (cliente.Situacao == SituacaoConstant.Ativo) ? cliente.Situacao = SituacaoConstant.Desativado : cliente.Situacao = SituacaoConstant.Ativo;
 
